@@ -20,6 +20,12 @@ const App = () => {
     setIsDark(ref.current);
   }, []);
 
+  useEffect(() => {
+    isDark
+      ? (document.body.style.backgroundColor = "black")
+      : (document.body.style.backgroundColor = "white");
+  }, [isDark]);
+
   const submitForm = (e) => {
     e.preventDefault();
     setData("");
@@ -77,27 +83,28 @@ const App = () => {
           ) : err ? (
             <ErrorPage err={err} />
           ) : (
-            <>
-              <div
-                className={`${
-                  isDark ? "bg-black" : "bg-white"
-                } w-full h-[80vh] flex items-center justify-center`}
-              >
-                {isDark ? (
-                  <img
-                    src="/App_dictionary_d.png"
-                    alt="App Dictionary"
-                    className="h-[200px] w-auto"
-                  />
-                ) : (
-                  <img
-                    src="/App_dictionary_w.png"
-                    alt="App Dictionary"
-                    className="h-[200px] w-auto"
-                  />
-                )}
-              </div>
-            </>
+            // <>
+            //   <div
+            //     className={`${
+            //       isDark ? "bg-black" : "bg-white"
+            //     } w-full h-[80vh] flex items-center justify-center`}
+            //   >
+            //     {isDark ? (
+            //       <img
+            //         src="/App_dictionary_d.png"
+            //         alt="App Dictionary"
+            //         className="h-[200px] w-auto"
+            //       />
+            //     ) : (
+            //       <img
+            //         src="/App_dictionary_w.png"
+            //         alt="App Dictionary"
+            //         className="h-[200px] w-auto"
+            //       />
+            //     )}
+            //   </div>
+            // </>
+            ""
           )}
         </div>
       </div>
